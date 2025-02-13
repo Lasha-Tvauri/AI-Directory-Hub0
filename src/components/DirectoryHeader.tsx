@@ -28,7 +28,7 @@ const DirectoryHeader = ({
   ];
 
   return (
-    <header className="w-full h-20 bg-white border-b border-gray-200 px-6 flex items-center justify-between fixed top-0 z-50">
+    <header className="w-full h-20 bg-background/80 backdrop-blur-sm border-b border-border px-6 flex items-center fixed top-0 z-50">
       <div className="flex-1 max-w-2xl relative">
         <div className="relative">
           <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
@@ -38,32 +38,6 @@ const DirectoryHeader = ({
             onChange={(e) => onSearch(e.target.value)}
           />
         </div>
-      </div>
-
-      <div className="ml-4">
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button
-              variant="outline"
-              className="flex items-center space-x-2 px-4 py-2"
-            >
-              <Globe className="h-5 w-5" />
-              <span>{currentLanguage}</span>
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="end" className="w-48">
-            {languages.map((language) => (
-              <DropdownMenuItem
-                key={language.code}
-                onClick={() => onLanguageChange(language.name)}
-                className="flex items-center space-x-2 cursor-pointer"
-              >
-                <span>{language.flag}</span>
-                <span>{language.name}</span>
-              </DropdownMenuItem>
-            ))}
-          </DropdownMenuContent>
-        </DropdownMenu>
       </div>
     </header>
   );

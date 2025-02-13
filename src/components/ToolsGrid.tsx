@@ -1,7 +1,7 @@
 import React from "react";
 import ToolCard from "./ToolCard";
 
-interface Tool {
+export interface Tool {
   id: string;
   name: string;
   description: string;
@@ -18,8 +18,8 @@ interface ToolsGridProps {
 
 const ToolsGrid = ({ tools = defaultTools }: ToolsGridProps) => {
   return (
-    <div className="bg-gray-50 p-6 w-full min-h-screen">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-max">
+    <div className="bg-background w-full min-h-screen">
+      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-6 auto-rows-max">
         {tools.map((tool) => (
           <ToolCard
             key={tool.id}

@@ -28,11 +28,17 @@ interface FilterSidebarProps {
 
 const FilterSidebar = ({
   categories = [
-    { id: "1", name: "Machine Learning" },
-    { id: "2", name: "Natural Language Processing" },
-    { id: "3", name: "Computer Vision" },
-    { id: "4", name: "Robotics" },
-    { id: "5", name: "Data Analytics" },
+    { id: "Machine Learning", name: "Machine Learning" },
+    { id: "Natural Language Processing", name: "Natural Language Processing" },
+    { id: "Computer Vision", name: "Computer Vision" },
+    { id: "Robotics", name: "Robotics" },
+    { id: "Data Analytics", name: "Data Analytics" },
+    { id: "Productivity", name: "Productivity" },
+    { id: "Assistant", name: "Assistant" },
+    { id: "Writing", name: "Writing" },
+    { id: "Content Creation", name: "Content Creation" },
+    { id: "Visualization", name: "Visualization" },
+    { id: "Automation", name: "Automation" },
   ],
   onCategoryChange = () => {},
   onPriceRangeChange = () => {},
@@ -42,7 +48,7 @@ const FilterSidebar = ({
   selectedLanguage = "English",
 }: FilterSidebarProps) => {
   return (
-    <div className="w-70 h-full bg-white border-r p-4 space-y-6">
+    <div className="relative w-70 h-full bg-background/95 backdrop-blur-sm border-r border-border p-4 space-y-6 transform transition-transform duration-300">
       <ScrollArea className="h-[calc(100vh-2rem)]">
         <div className="space-y-6">
           <Accordion type="single" collapsible defaultValue="categories">

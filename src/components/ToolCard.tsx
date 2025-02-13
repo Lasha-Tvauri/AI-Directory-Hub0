@@ -32,41 +32,49 @@ const ToolCard = ({
 }: ToolCardProps) => {
   return (
     <HoverCard>
-      <HoverCardTrigger>
-        <Card className="w-96 h-70 bg-white transition-all duration-300 hover:shadow-lg cursor-pointer">
-          <CardHeader className="space-y-2">
-            <div className="flex items-center space-x-4">
-              <img
-                src={logo}
-                alt={`${name} logo`}
-                className="w-12 h-12 rounded-lg object-contain"
-              />
-              <div>
-                <CardTitle className="text-xl">{name}</CardTitle>
-                <div className="flex items-center space-x-1">
-                  <Star className="w-4 h-4 text-yellow-400 fill-yellow-400" />
-                  <span className="text-sm text-gray-600">{rating}</span>
+      <HoverCardTrigger asChild>
+        <div
+          onClick={() =>
+            (window.location.href = `/tool/${name.toLowerCase().replace(/ /g, "-")}`)
+          }
+        >
+          <Card className="w-full h-70 bg-gradient-to-br from-background via-background/95 to-primary/5 transition-all duration-300 hover:shadow-lg cursor-pointer border border-border hover:border-primary">
+            <CardHeader className="space-y-2">
+              <div className="flex items-center space-x-4">
+                <img
+                  src={logo}
+                  alt={`${name} logo`}
+                  className="w-12 h-12 rounded-lg object-contain"
+                />
+                <div>
+                  <CardTitle className="text-xl">{name}</CardTitle>
+                  <div className="flex items-center space-x-1">
+                    <Star className="w-4 h-4 text-yellow-400 fill-yellow-400" />
+                    <span className="text-sm text-muted-foreground">
+                      {rating}
+                    </span>
+                  </div>
                 </div>
               </div>
-            </div>
-          </CardHeader>
-          <CardContent>
-            <CardDescription className="text-sm line-clamp-2">
-              {description}
-            </CardDescription>
-            <div className="mt-4 flex flex-wrap gap-2">
-              {categories.map((category) => (
-                <Badge
-                  key={category}
-                  variant="secondary"
-                  className="bg-blue-100 text-blue-800"
-                >
-                  {category}
-                </Badge>
-              ))}
-            </div>
-          </CardContent>
-        </Card>
+            </CardHeader>
+            <CardContent>
+              <CardDescription className="text-sm line-clamp-2">
+                {description}
+              </CardDescription>
+              <div className="mt-4 flex flex-wrap gap-2">
+                {categories.map((category) => (
+                  <Badge
+                    key={category}
+                    variant="secondary"
+                    className="bg-primary/20 text-primary-foreground"
+                  >
+                    {category}
+                  </Badge>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+        </div>
       </HoverCardTrigger>
       <HoverCardContent className="w-96">
         <div className="space-y-4">
